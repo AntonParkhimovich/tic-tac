@@ -6,7 +6,6 @@ newstep = (step, event)=> {
   let cell = event.target
   if(cell.lastChild === null && cell.className ==='column-game' ){
     cell.insertAdjacentHTML('afterbegin',`<div class="${step}"></div>`)
-    togle(cell.firstChild)
     if(step === cross){
       return circle
     }
@@ -48,9 +47,7 @@ createResult = (winner) =>{
     document.querySelector('body').insertAdjacentHTML('afterbegin',`<h1> Победили ${winner}</h1>`)
   }
 }
-togle = (cell) => { 
-  cell.style.opacity = '1'
-}
+
 game.addEventListener('click', event =>{
  step = newstep(step,event)
  let winner = checkWin()
