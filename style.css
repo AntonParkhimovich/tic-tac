@@ -1,9 +1,99 @@
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.header{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+
+.title{
+    font-family: 'Roboto', sans-serif;
+    font-size: 36px;
+}
 .game{
-  display: flex;
- flex-direction: row;
- flex-wrap: wrap;
- align-items: flex-start;
+  display: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
   width: 600px;
   height: 600px;
   margin: 0 auto;
@@ -42,66 +132,57 @@
   border-radius: 50%;
 }
 .toggle{
-  opacity: 1;
+    display: flex !important
 }
 .btn-newgame {
 }
 .modal {
-  display: block;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.8);
-  width: 100vw;
-  height: 100vh;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
 }
 .modal-body {
-  display: flex;
+    display: flex;
     background-color: silver;
-    margin: 25%;
-    width: 50%;
-    height: 25%;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-content: space-around;
-    justify-content: space-evenly;
+    width: 70vw;
+    height: 300px;
+    flex-flow: column nowrap;
+    place-content: space-around space-evenly;
     align-items: center;
     border-radius: 20px;
 }
 .modal-title {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
 }
 .modal-input__name {
-    width: 80%;
+    width: 72%;
     height: 20%;
     border-radius: 10px;
-    font-size: 35px;
+    font-size: 25px;
     text-align: center;
+    outline: none;
+    border: none;
+    border-radius: 25px;
 }
 .modal-footer{
     display: flex;
     justify-content: space-between;
-    width: 27vw;
+    width: 50vw;
 }
-.btn-accept {
-    width: 50%;
-    height: 5vh;
-    border-radius: 8px;
-    font-family: 'Josefin Sans';
-}
-.btn-cancell {
-    width: 40%;
-    height: 5vh;
-    border-radius: 8px;
-    font-family: 'Josefin Sans';
-}
-
 
 .btn:link,
 .btn:visited {
     font-weight: 900;
+    font-family: 'Roboto', sans-serif;
     text-decoration: none;
     padding: 15px 40px;
     display: inline-block;
@@ -122,7 +203,7 @@
 
 .btn-white {
     background-color: #fff;
-    color: #777;
+    color: #000;
 }
 
 .btn::after {

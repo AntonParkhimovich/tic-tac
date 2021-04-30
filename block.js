@@ -2,6 +2,7 @@ let game = document.querySelector('.game')
 let circle = 'circle'
 let cross = 'cross'
 let step = cross
+let header = document.querySelector('.header')
 newstep = (step, event)=> {
   let cell = event.target
   if(cell.lastChild === null && cell.className ==='column-game' ){
@@ -48,8 +49,21 @@ createResult = (winner) =>{
   }
 }
 
+toggle = (element)=>{
+element.classList.toggle('toggle')
+}
+
 game.addEventListener('click', event =>{
  step = newstep(step,event)
  let winner = checkWin()
  createResult(winner)
 }) 
+
+header.addEventListener('click', (e) =>{
+  if(e.target.id === 'newGame'){
+    toggle(document.querySelector('.modal'))
+  }
+})
+document.querySelector('.modal').addEventListener('click', (e)=>{
+      
+})
